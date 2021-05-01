@@ -27,7 +27,7 @@ namespace FortniteLauncher
 
         public static void Launch()
         {
-            Console.Title = "Fortnite Launcher by ozne";
+            Console.Title = "Fortnite Launcher";
             bool wincheck = Environment.OSVersion.Version < new Version(6, 2);
             if (wincheck)
             {
