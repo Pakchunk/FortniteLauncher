@@ -10,4 +10,5 @@ You **need** an exchange code generator, this can be done using https://github.c
 
 
 # CREDIT
-Me: Maintaining the launcher, VastBlast: NiteStats, which is used to grab the FL Token.
+Me: Maintaining the launcher.  
+VastBlast: NiteStats, which is used to grab the FLToken.
