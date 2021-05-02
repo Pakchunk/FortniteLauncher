@@ -31,7 +31,8 @@ I soon will add more flexibility, such as auto exchange grabbing and more.
 
 <h1 align="center" style="margin-top: 0px;">CREDIT</h1>
 <p align="center">
-Me: Maintaining the launcher.  
+Me: Maintaining the launcher.
+  <br />
 VastBlast: NiteStats, which is used to grab the FLToken.
 </p>
 <br />
