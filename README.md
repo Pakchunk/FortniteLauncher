@@ -10,21 +10,33 @@
     <img alt="Downloads" src="https://img.shields.io/github/stars/ozneeeee/FortniteLauncher?style=for-the-badge">
   </p>
 </p>
+
+<h1 align="center" style="margin-top: 0px;">FortniteLauncher</h1>
+<p align="center">
+Simple Fortnite launcher which bypasses EAC and allows for dll injection, it also allows for efficiently using Epic's services on older builds!
+</p>
 <br />
 
-# FortniteLauncher
-Simple Fortnite launcher which bypasses EAC and allows for dll injection, it also allows for efficiently using Epic's services on older builds!
-
-# CREATOR TO-DO
-I soon will add more flexibility, such as auto exchange grabbing and more.
-
-# CLIENT TO-DO
+<h1 align="center" style="margin-top: 0px;">CLIENT TO-DO</h1>
+<p align="center">
 You **need** an exchange code generator, this can be done using https://github.com/ThisNils/exchange-code-generator, a Discord bot like Carbide or AK47, or the manual way.
+</p>
+<br />
 
+<h1 align="center" style="margin-top: 0px;">CREATOR TO-DO</h1>
+<p align="center">
+I soon will add more flexibility, such as auto exchange grabbing and more.
+</p>
+<br />
 
-# CREDIT
+<h1 align="center" style="margin-top: 0px;">CREDIT</h1>
+<p align="center">
 Me: Maintaining the launcher.  
 VastBlast: NiteStats, which is used to grab the FLToken.
+</p>
+<br />
 
-# EXTRA
-If you have any issues, feel free to contact me on Discord at: ozne#3303
+<h1 align="center" style="margin-top: 0px;">EXTRA</h1>
+<p align="center">
+  Incase you have any issues, you can contact me on Discord at: ozne#3303
+  </p>
