@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using ProcessSuspend;
 using System;
 using System.Diagnostics;
@@ -12,16 +12,7 @@ namespace FortniteLauncher
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Launch();
-            }
-            catch
-            {
-                Console.WriteLine("Something went wrong, the cause could not be specified.");
-                Thread.Sleep(1400);
-                Environment.Exit(0);
-            }
+            Launch();
         }
 
 
@@ -39,24 +30,36 @@ namespace FortniteLauncher
             else { }
             string LAD = Environment.GetEnvironmentVariable("LocalAppData");
 
-            if (Directory.Exists(LAD + @"\uFortniteLauncher"))
+            if (File.Exists(LAD + @"\uFortniteLauncher\Settings.config"))
+            {
+                File.Delete(LAD + @"\uFortniteLauncher\Settings.config");
+            }
+            else { }
+
+            if (File.Exists(LAD + @"\uFortniteLauncher\Settings.json"))
             {
             }
             else
             {
                 Directory.CreateDirectory(LAD + @"\uFortniteLauncher");
-                Console.WriteLine("Fortnite Path (directory that contains Engine and FortniteGame)");
+                Console.WriteLine("Fortnite Path (Directory that contains Engine and FortniteGame)");
                 Console.Write("> ");
                 string ReadPath = Console.ReadLine().ToLower();
-                using (StreamWriter sw = File.CreateText(LAD + @"\uFortniteLauncher\Settings.config"))
+                using (StreamWriter sw = File.CreateText(LAD + @"\uFortniteLauncher\Settings.json"))
                 {
-                    sw.WriteLine("Path");
-                    sw.Write(ReadPath);
+                    sw.WriteLine("{");
+                    sw.WriteLine($"  \"Path\": \"{ReadPath}\"");
+                    sw.Write("}");
                     sw.Close();
                 }
+                string ReplaceThings = File.ReadAllText(LAD + @"\uFortniteLauncher\Settings.json");
+                ReplaceThings = ReplaceThings.Replace(@"\", "\\\\");
+                File.WriteAllText(LAD + @"\uFortniteLauncher\Settings.json", ReplaceThings);
             }
-            StreamReader sr = new StreamReader(LAD + @"\uFortniteLauncher\Settings.config");
-            sr.ReadLine();
+            StreamReader sr = new StreamReader(LAD + @"\uFortniteLauncher\Settings.json");
+            string GetPath = sr.ReadToEnd();
+            sr.Close();
+            Settings settings = JsonConvert.DeserializeObject<Settings>(GetPath);
             WebClient webClient = new WebClient();
             var FLToken = webClient.DownloadString("https://api.nitestats.com/v1/epic/builds/fltoken");
             FLTokenJson json = JsonConvert.DeserializeObject<FLTokenJson>(FLToken);
@@ -77,13 +80,11 @@ namespace FortniteLauncher
             }
             else { }
             string clientargs = $"-epicapp=Fortnite -epicenv=Prod -epiclocale=en-us -epicportal -skippatchcheck -NOSSLPINNING -noeac -fromfl=be -fltoken={json.fltoken} -frombe AUTH_TYPE=exchangecode -AUTH_LOGIN=unused -AUTH_PASSWORD={exchange}";
-            string FortnitePath = sr.ReadLine();
-            sr.Close();
             var client = new Process
             {
                 StartInfo =
                 {
-                    FileName = FortnitePath + @"\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe",
+                    FileName = settings.Path + @"\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe",
                     Arguments = clientargs
                 }
             };
@@ -91,7 +92,7 @@ namespace FortniteLauncher
             {
                 StartInfo =
                 {
-                    FileName = FortnitePath + @"\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping_EAC.exe",
+                    FileName = settings.Path + @"\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping_EAC.exe",
                     Arguments = clientargs
                 }
             };
@@ -99,7 +100,7 @@ namespace FortniteLauncher
             {
                 StartInfo =
                 {
-                    FileName = FortnitePath + @"\FortniteGame\Binaries\Win64\FortniteLauncher.exe",
+                    FileName = settings.Path + @"\FortniteGame\Binaries\Win64\FortniteLauncher.exe",
                 }
             };
 
@@ -109,18 +110,23 @@ namespace FortniteLauncher
             }
             catch
             {
+                Console.Clear();
                 Console.WriteLine("\nInvalid Fortnite Path!\n");
                 Thread.Sleep(1100);
                 Console.Clear();
-                Console.WriteLine("Fortnite Path (directory that contains Engine and FortniteGame)");
+                Console.WriteLine("Fortnite Path (Directory that contains Engine and FortniteGame)");
                 Console.Write("> ");
                 string paththing = Console.ReadLine().ToLower();
-                using (StreamWriter sw = File.CreateText(LAD + @"\uFortniteLauncher\Settings.config"))
+                using (StreamWriter sw = File.CreateText(LAD + @"\uFortniteLauncher\Settings.json"))
                 {
-                    sw.WriteLine("Path");
-                    sw.Write($"{paththing}");
+                    sw.WriteLine("{");
+                    sw.WriteLine($"  \"Path\": \"{paththing}\"");
+                    sw.Write("}");
                     sw.Close();
                 }
+                string ReplaceThings = File.ReadAllText(LAD + @"\uFortniteLauncher\Settings.json");
+                ReplaceThings = ReplaceThings.Replace(@"\", "\\\\");
+                File.WriteAllText(LAD + @"\uFortniteLauncher\Settings.json", ReplaceThings);
                 Console.Clear();
                 Program.Launch();
                 Environment.Exit(0);
@@ -139,6 +145,11 @@ namespace FortniteLauncher
             Thread.Sleep(2600);
         }
         
+
+        public class Settings
+        {
+            public string Path { get; set; }
+        }
         
         public class FLTokenJson
         {
