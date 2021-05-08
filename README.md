@@ -24,12 +24,6 @@ You **need** an exchange code generator, this can be done using https://github.c
 </p>
 <br />
 
-<h1 align="center" style="margin-top: 0px;">CREATOR TO-DO</h1>
-<p align="center">
-I soon will add more flexibility, such as auto exchange grabbing and more.
-</p>
-<br />
-
 <h1 align="center" style="margin-top: 0px;">CREDIT</h1>
 <p align="center">
 Me: Maintaining the launcher.
