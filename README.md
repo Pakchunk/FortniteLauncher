@@ -1,4 +1,7 @@
 <h1 align ="center" style="margin-top: 0px;">If this was useful for you, please consider giving this repository a star, it means much more than you know!</h1>
+<p align="center">
+  Small disclaimer to anyone getting ready to judge: This is a personal project which I only created in order to further learn and make improvements, I'm well aware that there are many flaws in my code and that there is a lot I could have done better. 
+  </p>
 <p align="center" style="margin-bottom: 0px !important;">
   <img width="150" src="https://cdn.discordapp.com/emojis/797578986417815593.png?v=1" align="center">
 </p>
