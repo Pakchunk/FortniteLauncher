@@ -17,11 +17,6 @@ namespace FortniteLauncher
 
         static void Main()
         {
-            Launch();
-        }
-
-        static void Launch()
-        {
             Console.Title = "Fortnite Launcher";
             if (WinCheck)
             {
@@ -56,7 +51,7 @@ namespace FortniteLauncher
             {
                 Console.Clear();
                 ConfigurateFortnitePath();
-                Program.Launch();
+                Main();
                 Environment.Exit(0);
             }
 
@@ -103,7 +98,7 @@ namespace FortniteLauncher
                 Console.Clear();
                 ConfigurateFortnitePath();
                 Console.Clear();
-                Program.Launch();
+                Main();
                 Environment.Exit(0);
             }
             launcher.Start();
