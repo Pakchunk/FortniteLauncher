@@ -58,7 +58,7 @@ namespace FortniteLauncher
             string GetPath = File.ReadAllText(LocalAppData + @"\uFortniteLauncher\Settings.json");
             Settings settings = JsonConvert.DeserializeObject<Settings>(GetPath);
 
-            Arguments = $"-epicapp=Fortnite -epicenv=Prod -epiclocale=en-us -epicportal -skippatchcheck -NOSSLPINNING -noeac -fromfl=be -fltoken={json.fltoken} -frombe AUTH_TYPE=exchangecode -AUTH_LOGIN=unused -AUTH_PASSWORD={exchange}";
+            Arguments = $"-epicapp=Fortnite -epicenv=Prod -epiclocale=en-us -epicportal -skippatchcheck -NOSSLPINNING -noeac -fromfl=be -fltoken={json.fltoken} -frombe -AUTH_TYPE=exchangecode -AUTH_LOGIN=unused -AUTH_PASSWORD={exchange}";
             var client = new Process
             {
                 StartInfo =
