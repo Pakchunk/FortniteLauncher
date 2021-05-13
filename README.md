@@ -8,7 +8,7 @@
   This launcher will likely be completely patched in a future update, when that happens, this repository will become archived and no support will be given for this.
   </p>
 <p align="center" style="margin-bottom: 0px !important;">
-  <img width="150" src="https://cdn.discordapp.com/emojis/797578986417815593.png?v=1" align="center">
+  <img width="150" src="https://cdn.discordapp.com/emojis/797249441173209099.png?v=1" align="center">
 </p>
 
  <p align="center">
