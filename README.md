@@ -1,6 +1,11 @@
 <h1 align ="center" style="margin-top: 0px;">If this was useful for you, please consider giving this repository a star, it means much more than you know!</h1>
 <p align="center">
-  Small disclaimer to anyone getting ready to judge: This is a personal project which I only created in order to further learn and make improvements, I'm well aware that there are many flaws in my code and that there is a lot I could have done better. 
+  At the moment, FortniteLauncher is semi broken.
+  <br />
+  Ever since the 16.40 update, you can go in lobby and avoid the game being closed by clicking outside of the box instead of the confirm button, but no matter what after around 20-30 seconds, the game will close automatically.
+  <br />
+  <br />
+  This launcher will likely be completely patched in a future update, when that happens, this repository will become archived and no support will be given for this.
   </p>
 <p align="center" style="margin-bottom: 0px !important;">
   <img width="150" src="https://cdn.discordapp.com/emojis/797578986417815593.png?v=1" align="center">
@@ -23,8 +28,9 @@ Simple Fortnite launcher which bypasses EAC and allows for dll injection, it als
 
 <h1 align="center" style="margin-top: 0px;">CLIENT TO-DO</h1>
 <p align="center">
-You **need** an exchange code generator, this can be done using https://github.com/ThisNils/exchange-code-generator, a Discord bot like Carbide or AK47, or the manual way.
+You *need* an exchange code generator, this can be done using https://github.com/ThisNils/exchange-code-generator, a Discord bot like AK47, or the manual way.
 </p>
+<br />
 <br />
 
 <h1 align="center" style="margin-top: 0px;">CREDIT</h1>
@@ -32,6 +38,8 @@ You **need** an exchange code generator, this can be done using https://github.c
 Me: Maintaining the launcher.
   <br />
 VastBlast: NiteStats, which is used to grab the FLToken.
+  <br />
+  Newtonsoft.Json library for reading FLToken, and reading/writing saved path.
 </p>
 <br />
 
